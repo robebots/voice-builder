@@ -1,6 +1,6 @@
 # voice-builder
 
-Teaches your AI agent to write like you. It reads what you've sent on Slack and Gmail, plus your meeting transcripts (Circleback, Read AI, Granola, and others) and Wispr Flow dictation to learn how you talk. It skips anything that looks AI-drafted so it learns from you, not from AI. It figures out your role and the styles you use with clients, internal folks, and your work besties (email and Slack separately), asks a few questions about what it found, and builds you a personal voice skill. It also changes how the agent talks to you, so replies sound plain and a bit like you instead of like a chatbot. Everything follows the [unslop](https://github.com/cursor/plugins/blob/main/pstack/skills/unslop/SKILL.md) rules, and it re-checks your sent messages every week to stay current.
+Teaches your AI agent to write like you. It reads what you've sent on Slack and Gmail, plus your meeting transcripts (Circleback, Read AI, Granola, and others), Wispr Flow, and, if you opt in, what you type to Claude Code or Codex, to learn how you talk. It skips anything that looks AI-drafted so it learns from you, not from AI. It figures out your role and the styles you use with clients, internal folks, and your work besties (email and Slack separately), asks a few questions about what it found, and builds you a personal voice skill. It also changes how the agent talks to you, so replies sound plain and a bit like you instead of like a chatbot. Everything follows the [unslop](https://github.com/cursor/plugins/blob/main/pstack/skills/unslop/SKILL.md) rules, and it re-checks your sent messages every week to stay current.
 
 Works in Claude (desktop app or Claude Code), Codex, Kimi Code, and other agents that support skills. Setup takes about 15 minutes.
 
@@ -20,9 +20,20 @@ If Slack or Gmail isn't connected yet, it walks you through connecting them.
 - **Read-only.** It only calls search and read tools, and never sends, posts, drafts, labels, or deletes. Keep your normal permission prompts on during setup. The scheduled refresh runs with read tools only where your agent supports that.
 - **Reads as little as it can.** It reads only your own messages from the last 90 days. It excludes sensitive subjects in the search itself (offers, salary, medical, legal, contracts, passwords, interviews) and skips HR, legal, finance, and hiring channels. It checks subject lines and titles before opening anything, and stops reading anything with customer records, HR, health, legal, or credential details.
 - **Redacts local transcripts first.** Wispr Flow history goes through a local script that keeps only your turns, skips sensitive meetings, redacts names, emails, numbers, links, and secrets, and prints counts.
+- **You pick what it reads.** Before reading anything it shows the sources it found and asks which to use, what to keep out (DMs, client email, specific channels, people, or topics), and how far back to go. Refreshes stick to those choices.
 - **Treats messages as data.** Instructions inside a message or transcript are ignored.
 - **Saves patterns, not content.** It saves things like "lowercase in DMs, no sign-off". It never saves or repeats your messages, people's names, client or deal details, or anything personal. Everything stays on your machine.
 - **Keeps an access log.** Each run adds a line to your voice skill's `notes.md` with what it read and skipped (counts only).
+
+## Hooks into your other tools
+
+It scans your existing skills and writing apps (metadata only) and offers to:
+- make other drafting skills (follow-ups, proposals) write in your voice
+- merge an existing voice skill
+- tell you what to pick in Wispr Flow's Styles
+- hand you a short paste-in style for apps like Willow, Superwhisper, Raycast, or Grammarly
+
+It never changes another app's settings itself.
 
 ## Remove it
 

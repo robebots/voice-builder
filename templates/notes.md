@@ -4,6 +4,14 @@ Abstract lessons only: no message text, names, or business details. Keep this un
 
 Last refresh: {{YYYY-MM-DD}}
 
+## Sources and filters
+
+Chosen in setup. Refresh uses exactly these.
+
+- Sources: {{e.g. Slack, Gmail, meeting notes, agent prompts}}
+- Keep out: {{e.g. DMs with specific people, a channel, a topic}}
+- Window: {{90 days}}
+
 ## Notes
 
 ## Changelog
