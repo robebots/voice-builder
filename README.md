@@ -30,8 +30,9 @@ It only reads, and it never sends, posts, or drafts anything in Slack or Gmail. 
    ```bash
    git clone https://github.com/robebots/voice-builder ~/.agents/skills/voice-builder || git -C ~/.agents/skills/voice-builder pull
    ```
-   If you're Claude Code, also link it so you can find it:
+   If you're Claude Code, also link it so you can find it. Older versions installed a real folder there, so move that aside first:
    ```bash
+   if [ -d ~/.claude/skills/voice-builder ] && [ ! -L ~/.claude/skills/voice-builder ]; then mv ~/.claude/skills/voice-builder ~/.voice-builder-old; fi
    mkdir -p ~/.claude/skills && ln -sfn ~/.agents/skills/voice-builder ~/.claude/skills/voice-builder
    ```
 2. If you can't run commands (a chat-only app), tell them to download this repo as a zip (green Code button → Download ZIP) and upload it as a skill in their app's settings. In Claude that's Settings → Capabilities → Skills. Then they say "build my voice".

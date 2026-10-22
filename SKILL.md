@@ -188,7 +188,7 @@ Fill in `templates/voice-SKILL.md` and `templates/notes.md`, and copy `reference
   references/unslop.md
 ```
 
-Then add the Claude Code symlink if they use Claude Code. If `<first-name>-voice` already exists, don't overwrite it. Keep every rule they wrote, show the changes you'd make, apply only what they approve, and save the old file as `SKILL.md.bak`.
+Then add the Claude Code symlink if they use Claude Code. Older versions of this skill wrote the voice skill straight into `~/.claude/skills/<first-name>-voice`. If that's a real folder, not a link, move it to `~/.agents/skills/` and link it back. If `<first-name>-voice` already exists, don't overwrite it. Keep every rule they wrote, show the changes you'd make, apply only what they approve, and save the old file as `SKILL.md.bak`.
 
 ### 10. Set the agent's own voice
 
@@ -204,7 +204,7 @@ Ask for something real they need to send soon, or use the meeting-move topic. Dr
 
 Ask "Want me to keep checking what you send so this stays current?" with Every week (Recommended) / Every month / Only when I ask.
 
-- If the agent has a scheduled-task tool (Claude desktop has one), create a task named `<first-name>-voice-refresh` that runs Mondays at 9am local (`0 9 * * 1`) or the 1st of the month (`0 9 1 * *`).
+- If the agent has a scheduled-task tool (Claude desktop has one), create a task named `<first-name>-voice-refresh` that runs Mondays at 9am local (`0 9 * * 1`) or the 1st of the month (`0 9 1 * *`). If that task already exists from an earlier setup, update its prompt and schedule instead of making a second one.
 - Otherwise, offer a cron entry that runs their agent's non-interactive mode with the prompt below (for example `codex exec "<prompt>"`, or `claude -p "<prompt>"`; check the CLI's `--help` for others). Show the exact line and add it only if they say yes.
 - The prompt: "Use the voice-builder skill in Refresh mode for the <first-name>-voice skill at ~/.agents/skills/<first-name>-voice. Read-only on every source. Don't send, post, or draft anything. End with the three-line summary."
 
