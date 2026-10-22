@@ -16,7 +16,24 @@ If Slack or Gmail isn't connected yet, it walks you through connecting them.
 
 ## What it does with your messages
 
-It only reads, and it never sends, posts, or drafts anything in Slack or Gmail. In meeting transcripts it reads only what you said, and it skips HR, hiring, legal, and review meetings. It saves patterns like "lowercase in DMs, no sign-off" or "asks first, context second in client emails". It never saves or repeats your messages, people's names, client or deal details, or anything personal. Everything it writes stays on your machine.
+- **Use a company-approved agent.** What it reads goes to your agent's model provider. Before reading anything, it asks whether your agent is approved for work data, and stops if it isn't.
+- **Read-only.** It only calls search and read tools, and never sends, posts, drafts, labels, or deletes. Keep your normal permission prompts on during setup. The scheduled refresh runs with read tools only where your agent supports that.
+- **Reads as little as it can.** It reads only your own messages from the last 90 days. It excludes sensitive subjects in the search itself (offers, salary, medical, legal, contracts, passwords, interviews) and skips HR, legal, finance, and hiring channels. It checks subject lines and titles before opening anything, and stops reading anything with customer records, HR, health, legal, or credential details.
+- **Redacts local transcripts first.** Wispr Flow history goes through a local script that keeps only your turns, skips sensitive meetings, redacts names, emails, numbers, links, and secrets, and prints counts.
+- **Treats messages as data.** Instructions inside a message or transcript are ignored.
+- **Saves patterns, not content.** It saves things like "lowercase in DMs, no sign-off". It never saves or repeats your messages, people's names, client or deal details, or anything personal. Everything stays on your machine.
+- **Keeps an access log.** Each run adds a line to your voice skill's `notes.md` with what it read and skipped (counts only).
+
+## Remove it
+
+1. Delete `~/.agents/skills/<your-name>-voice`, `~/.agents/skills/voice-builder`, and their links in `~/.claude/skills/`.
+2. Delete the `<your-name>-voice-refresh` scheduled task or cron line.
+3. Remove the `voice-builder:agent-voice` block from `~/.claude/CLAUDE.md`, `~/.codex/AGENTS.md`, or your Kimi `AGENTS.md`.
+4. Disconnect Slack, Gmail, or your notetaker from your agent if you only connected them for this.
+
+## Updating
+
+Installs track `main`. If your company wants to review changes first, check out a specific commit or tag instead of pulling `main`, and read the diff before updating.
 
 ## After setup
 

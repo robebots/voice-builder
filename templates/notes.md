@@ -8,4 +8,4 @@ Last refresh: {{YYYY-MM-DD}}
 
 ## Changelog
 
-- {{YYYY-MM-DD}} Built from {{n}} Slack messages, {{n}} emails, {{n}} meetings, and {{n}} dictations over 90 days, plus the setup questions. Set aside {{n}} messages as AI-assisted.
+- {{YYYY-MM-DD}} Built from {{n}} Slack messages, {{n}} emails, {{n}} meetings, and {{n}} dictations over 90 days, plus the setup questions. Skipped {{n}} as sensitive and set aside {{n}} as AI-assisted. Agent approved for work data: {{yes, per the person}}.

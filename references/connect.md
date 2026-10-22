@@ -35,6 +35,8 @@ Wispr keeps dictation history on the machine, in `~/Library/Application Support/
 
 Wispr can also record meetings, and that's often where most of the spoken material is. Each meeting is a row in the `Meetings` table, with its transcript in `meetings/<id>/refined.ndjson` (one line per turn, with `text` and a `speaker.id`). The `speakerMap` column links speaker IDs to people, and the person is the one with `"origin": "self"`. Meetings with no speaker assignment can't be split by speaker, so skip them. Use the title filter from the ground rules before opening any transcript.
 
+Don't open the database or transcript files yourself. Run `python3 -I scripts/wispr.py` from the voice-builder folder. It reads read-only, applies the filters above, keeps only their turns, skips meetings titled with people's names (ask before adding `--include-named`), and prints counts. Add `--sample 20` for a redacted sample when you need to judge tone.
+
 ## No connection at all
 
 Ask them to paste messages they sent. Ask them to swap names, client details, and anything personal for placeholders like [name] or [client] first:
