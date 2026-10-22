@@ -1,6 +1,6 @@
 # voice-builder
 
-Teaches your AI agent to write like you. It reads what you've sent on Slack and Gmail, figures out your role and the styles you use with clients, internal folks, and your work besties (email and Slack separately), asks a few questions about what it found, and builds you a personal voice skill. It also changes how the agent talks to you, so replies sound plain and a bit like you instead of like a chatbot. Everything follows the [unslop](https://github.com/cursor/plugins/blob/main/pstack/skills/unslop/SKILL.md) rules, and it re-checks your sent messages every week to stay current.
+Teaches your AI agent to write like you. It reads what you've sent on Slack and Gmail, plus your meeting transcripts (Circleback, Read AI, Granola, and others) and Wispr Flow dictation to learn how you talk. It skips anything that looks AI-drafted so it learns from you, not from AI. It figures out your role and the styles you use with clients, internal folks, and your work besties (email and Slack separately), asks a few questions about what it found, and builds you a personal voice skill. It also changes how the agent talks to you, so replies sound plain and a bit like you instead of like a chatbot. Everything follows the [unslop](https://github.com/cursor/plugins/blob/main/pstack/skills/unslop/SKILL.md) rules, and it re-checks your sent messages every week to stay current.
 
 Works in Claude (desktop app or Claude Code), Codex, Kimi Code, and other agents that support skills. Setup takes about 15 minutes.
 
@@ -16,7 +16,7 @@ If Slack or Gmail isn't connected yet, it walks you through connecting them.
 
 ## What it does with your messages
 
-It only reads, and it never sends, posts, or drafts anything in Slack or Gmail. It saves patterns like "lowercase in DMs, no sign-off" or "asks first, context second in client emails", not your messages, names, or client details. Everything it writes stays on your machine.
+It only reads, and it never sends, posts, or drafts anything in Slack or Gmail. In meeting transcripts it reads only what you said, and it skips HR, hiring, legal, and review meetings. It saves patterns like "lowercase in DMs, no sign-off" or "asks first, context second in client emails", not your messages, names, or client details. Everything it writes stays on your machine.
 
 ## After setup
 

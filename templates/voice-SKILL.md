@@ -41,6 +41,18 @@ Never invent facts, opinions, promises, or feelings. Keep {{First}}'s level of c
 
 If a draft's audience and medium have no section yet, use the closest one with the same medium, and say which one you used.
 
+## Out loud
+
+{{Only if setup had spoken sources. Otherwise delete this section.}}
+
+For anything meant to be said or to sound said (talk tracks, video scripts, presentation notes, voice notes), write the way {{First}} talks:
+- Gets to the point: {{e.g. point first, then one example}}
+- Explains with: {{e.g. analogies and quick stories}}
+- Rhythm: {{e.g. short sentences, asks the room questions}}
+- Words they use: {{...}}
+
+Where {{First}} chose to write more like they talk: {{registers, or "none"}}.
+
 ## Formal writing
 
 {{First}} is a {{role}}. Formal writing uses normal caps, punctuation, and complete sentences. It keeps {{First}}'s word choice, directness, and warmth, and drops the Slack habits. Unslop applies in full here, with no "Keep anyway" exceptions except technical terms.

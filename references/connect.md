@@ -21,6 +21,18 @@ Claude Code in a terminal can also add Slack with `claude plugin install slack`,
 - Slack: add an MCP server pointing at `https://mcp.slack.com/mcp` using the agent's MCP settings, and sign in when it asks.
 - Gmail: paste emails (below) unless they already have a Gmail tool.
 
+## Meeting notetakers (optional)
+
+Transcripts show how they talk, which is often warmer and clearer than how they write. Check for any of these, in this order:
+
+1. A notetaker already connected to the agent: Circleback, Read AI, Granola, Fireflies, Otter, Fathom, or similar. Use its search and transcript tools.
+2. Zoom or Google Meet transcripts saved to Google Drive, if a Drive tool is connected. Search for docs with "Transcript" in the title.
+3. If they use a notetaker that isn't connected: in Claude, look for it under Settings → Connectors. In other agents, check the tool's site for an MCP server. If there's none, they can export three to five transcripts as text files and drop them in a folder for you to read.
+
+## Wispr Flow (optional, Mac)
+
+Wispr keeps dictation history on the machine, in `~/Library/Application Support/Wispr Flow/flow.sqlite` (table `History`). This path comes from community tools, not Wispr's docs, so check it exists first. Open it read-only (`sqlite3 -readonly`), look at the columns, and prefer the raw transcript over `formattedText`, since the formatted version has been polished by AI. If they've set Wispr to auto-delete or not store history, there's nothing to read, and that's fine.
+
 ## No connection at all
 
 Ask them to paste messages they sent, with names and client details swapped for placeholders if they like:

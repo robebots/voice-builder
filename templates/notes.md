@@ -8,4 +8,4 @@ Last refresh: {{YYYY-MM-DD}}
 
 ## Changelog
 
-- {{YYYY-MM-DD}} Built from {{n}} Slack messages and {{n}} emails over 90 days, plus the setup interview.
+- {{YYYY-MM-DD}} Built from {{n}} Slack messages, {{n}} emails, {{n}} meetings, and {{n}} dictations over 90 days, plus the setup questions. Set aside {{n}} messages as AI-assisted.
