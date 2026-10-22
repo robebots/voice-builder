@@ -33,9 +33,11 @@ Transcripts show how they talk, which is often warmer and clearer than how they 
 
 Wispr keeps dictation history on the machine, in `~/Library/Application Support/Wispr Flow/flow.sqlite` (table `History`). This path comes from community tools, not Wispr's docs, so check it exists first. Open it read-only (`sqlite3 -readonly`), look at the columns, and prefer the raw transcript over `formattedText`, since the formatted version has been polished by AI. If they've set Wispr to auto-delete or not store history, there's nothing to read, and that's fine.
 
+Wispr can also record meetings, and that's often where most of the spoken material is. Each meeting is a row in the `Meetings` table, with its transcript in `meetings/<id>/refined.ndjson` (one line per turn, with `text` and a `speaker.id`). The `speakerMap` column links speaker IDs to people, and the person is the one with `"origin": "self"`. Meetings with no speaker assignment can't be split by speaker, so skip them. Use the title filter from the ground rules before opening any transcript.
+
 ## No connection at all
 
-Ask them to paste messages they sent, with names and client details swapped for placeholders if they like:
+Ask them to paste messages they sent. Ask them to swap names, client details, and anything personal for placeholders like [name] or [client] first:
 
 - 10 Slack messages: a few DMs, a few channel posts, and a longer one if they have it
 - 5 sent emails: at least one internal and one external, if they write external email

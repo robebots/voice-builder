@@ -16,7 +16,7 @@ If Slack or Gmail isn't connected yet, it walks you through connecting them.
 
 ## What it does with your messages
 
-It only reads, and it never sends, posts, or drafts anything in Slack or Gmail. In meeting transcripts it reads only what you said, and it skips HR, hiring, legal, and review meetings. It saves patterns like "lowercase in DMs, no sign-off" or "asks first, context second in client emails", not your messages, names, or client details. Everything it writes stays on your machine.
+It only reads, and it never sends, posts, or drafts anything in Slack or Gmail. In meeting transcripts it reads only what you said, and it skips HR, hiring, legal, and review meetings. It saves patterns like "lowercase in DMs, no sign-off" or "asks first, context second in client emails". It never saves or repeats your messages, people's names, client or deal details, or anything personal. Everything it writes stays on your machine.
 
 ## After setup
 

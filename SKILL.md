@@ -24,6 +24,19 @@ There are two modes. **Setup** runs the first time, or when they ask to rebuild.
 - Skip messages that are mostly code or links, auto-generated (calendar replies, forwards), or under four words.
 - In meeting transcripts, analyze only the person's own speaker turns. Skip meetings whose title or attendees suggest HR, hiring interviews, legal, medical, or performance reviews.
 - Learn only from writing the person wrote themselves. Set aside anything that looks AI-drafted (step 3), so the profile doesn't drift toward how AI writes.
+- Skip meetings and threads that are clearly personal: family, health, dating, money, legal matters.
+- Scrub everything you say or write (see below).
+
+## Scrub private and sensitive details
+
+Raw messages and transcripts are for counting patterns, never for repeating. Everything that leaves the analysis gets scrubbed: summaries, questions, option previews, sample sentences, the voice skill, `notes.md`, the agent-voice block, scheduled-task prompts, and refresh reports.
+
+- **Never include:** names of people, companies, clients, or vendors. Also no project or product code names, meeting titles, email addresses, phone numbers, links, account or deal details, dollar amounts, or dates tied to an event.
+- **Never include personal details:** family, health, relationships, money, legal matters, job searches, interviews, or anyone's performance.
+- **Describe, don't quote.** Say "backs recommendations with a past project" instead of naming the project. Say "DMs with three teammates" instead of naming them.
+- **Make up neutral examples.** Sample sentences and previews use invented, everyday topics like moving a meeting or shipping a first version. Never use a real event from their messages.
+- **Keep raw text out of tool output when you can.** When a script can do the counting, have it print counts and patterns, not the text. When you need to read raw text to judge tone, read it and move on. Write scratch copies only to a temporary folder, and delete them before you finish.
+- **Before you write any file, check it** for every item above. If something slipped in, cut it.
 
 ## Works in any agent
 
