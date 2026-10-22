@@ -19,7 +19,9 @@ Never invent facts, opinions, promises, or feelings. Keep {{First}}'s level of c
 
 ## Registers
 
-### Clients ({{preset}})
+{{One section per register found in setup, named audience plus medium. Email and Slack get separate sections even for the same people. Only include registers with messages behind them.}}
+
+### Clients, email ({{preset}})
 - Length: {{e.g. 60 to 120 words, two or three short paragraphs}}
 - Opens and signs off: {{e.g. "Hi <first name>," and "Best,\n{{First}}"}}
 - Caps and punctuation: {{...}}
@@ -27,7 +29,7 @@ Never invent facts, opinions, promises, or feelings. Keep {{First}}'s level of c
 - Do: {{...}}
 - Don't: {{...}}
 
-### Internal ({{preset}})
+### Work besties, Slack ({{preset}})
 - Length:
 - Opens and signs off:
 - Caps and punctuation:
@@ -35,15 +37,9 @@ Never invent facts, opinions, promises, or feelings. Keep {{First}}'s level of c
 - Do:
 - Don't:
 
-### Work besties ({{preset}})
-- Length:
-- Opens and signs off:
-- Caps and punctuation:
-- Tone:
-- Do:
-- Don't:
+{{...one section for each other register, like "Internal, Slack" or "Leadership, email"}}
 
-{{Add a register for anything else that came up in setup. Delete any register with no messages behind it.}}
+If a draft's audience and medium have no section yet, use the closest one with the same medium, and say which one you used.
 
 ## Keep anyway
 

@@ -1,6 +1,6 @@
 # voice-builder
 
-A Claude skill that learns how you write from your Slack and Gmail, then builds you a personal voice skill that drafts the way you do. It asks a few questions about how you want to sound with clients, internal folks, and your work besties, and it re-checks your sent messages every week to stay current. Drafts also follow the [unslop](https://github.com/cursor/plugins/blob/main/pstack/skills/unslop/SKILL.md) rules, so they don't read like AI.
+A Claude skill that learns how you write from your Slack and Gmail, then builds you a personal voice skill that drafts the way you do. It asks a few questions about how you want to sound with clients, internal folks, and your work besties, with separate styles for email and Slack, and it re-checks your sent messages every week to stay current. Drafts also follow the [unslop](https://github.com/cursor/plugins/blob/main/pstack/skills/unslop/SKILL.md) rules, so they don't read like AI.
 
 Setup takes about 10 minutes.
 

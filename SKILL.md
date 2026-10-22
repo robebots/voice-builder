@@ -28,14 +28,13 @@ Get their identity: the Slack profile of the current user (name, user ID) and th
 
 ### 2. Warm-up questions
 
-Use the AskUserQuestion tool. If it isn't available, ask in chat one question at a time. Keep every question short and casual, the way a coworker would ask it. Ask these in one call:
+Use the AskUserQuestion tool. If it isn't available, ask in chat one question at a time. Keep every question short and casual, the way a coworker would ask it. Don't ask who they write to or where. Their messages answer that. Ask these in one call:
 
-1. "Who do you write to the most?" (multiSelect) Clients and prospects / Leadership / People on other teams / Work besties
-2. "Where do you do most of your writing?" Slack / Email / Both about the same
-3. "What do you want help with first?" Everything / Quick Slack messages / Longer updates and docs / Client emails
-4. "Anything you already know you want to stop doing?" (multiSelect) Explaining too much / Hedging and apologizing / Too many exclamation points / Sounding stiff
+1. "Who do you want help writing to the most?" (multiSelect) Clients and prospects / Leadership / People on other teams / Work besties
+2. "What do you want help writing?" (multiSelect) Quick Slack messages / Emails / Longer updates and docs
+3. "Anything you already know you want to stop doing?" (multiSelect) Explaining too much / Hedging and apologizing / Too many exclamation points / Sounding stiff
 
-The default registers are **Clients** (external email and Slack Connect channels), **Internal** (team channels, leadership, cross-team email), and **Work besties** (DMs and small group DMs with people they talk to often). Add a register for anything they type under "Other" if you later find enough messages for it.
+These answers set priorities: which registers get the most samples, the closest review, and the test drive. They don't decide which registers exist. The messages do.
 
 ### 3. Pull samples
 
@@ -44,9 +43,16 @@ Go back 90 days. Aim for about 150 Slack messages and 40 sent emails, spread acr
 - Slack: search with filters `from:<@THEIR_ID> after:<YYYY-MM-DD>`. Run separate searches per `channel_types` (`im,mpim`, `private_channel`, `public_channel`) so DMs don't get crowded out. Turn off context to save space.
 - Gmail: search `in:sent newer_than:90d`, then open a spread of threads for the bodies. Use only the part they wrote, not the quoted reply below it.
 
-Sort each message into a register by recipient. Email to an outside domain or a Slack Connect channel goes to Clients. Internal email and team channels go to Internal. DMs and group DMs with frequent partners go to Work besties.
+### 4. Find the registers
 
-### 4. Analyze each register
+A register is an audience plus a medium, because people write differently in email and Slack even to the same person. Tag each message with both:
+
+- Medium: Slack or email
+- Audience: **Clients** (outside email domains, Slack Connect channels), **Leadership** (execs and their manager, going by Slack profile titles), **Internal** (team channels and other internal email), or **Work besties** (DMs and small group DMs with the handful of people they message most)
+
+Each pair is a candidate register, like "Clients, email" or "Work besties, Slack". Keep a candidate that has at least 10 messages. Merge two candidates that read the same (same length, caps, openers, and tone), and split one that clearly holds two styles. Most people end up with four to six registers. Note any pair with too few messages so the review can say "not enough to go on yet".
+
+### 5. Analyze each register
 
 For each register, write down findings with rough counts, not impressions:
 
@@ -69,20 +75,20 @@ Give each register a preset name, borrowed from Wispr Flow, so the person has a 
 | Very casual | Lowercase, minimal punctuation |
 | Excited | Casual with exclamation points and emoji |
 
-### 5. Guided review
+### 6. Guided review
 
 Show a short summary per register: the preset, three to five findings with counts, and one sample sentence written in that style about a neutral topic like moving a meeting. Don't quote their real messages.
 
-Then make one AskUserQuestion call with one question per register, for example "With clients you're pretty formal: about 90 words, 'Hi <name>,' and 'Best,'. Keep that?" The options are Keep it (Recommended) / Loosen it up / Shorter and more direct / More polished. Put the sample sentence rewritten in each style in that option's preview.
+Then ask one question per register, up to four per AskUserQuestion call, top-priority registers first. For example: "Client emails: you're pretty formal, about 90 words, 'Hi <name>,' and 'Best,'. Keep that?" The options are Keep it (Recommended) / Loosen it up / Shorter and more direct / More polished. Put the sample sentence rewritten in each style in that option's preview.
 
 Then one more call:
 
 - "Unslop would cut these. Which ones are actually you?" (multiSelect) List only the conflicts you actually found, such as em dashes, exclamation points with work besties, "let me know if", or emoji. Unslop wins for anything they don't pick.
-- "Anything I should never do when I write as you?" (multiSelect) Offer things that fit what you saw, such as apologizing for slow replies, emoji with clients, or long emails, plus anything from warm-up question 4.
+- "Anything I should never do when I write as you?" (multiSelect) Offer things that fit what you saw, such as apologizing for slow replies, emoji with clients, or long emails, plus anything from warm-up question 3.
 
 The difference between how they write and how they want to write is the most useful part. Write the version they want into the profile and note which observed habit it replaces.
 
-### 6. Write the skill
+### 7. Write the skill
 
 Fill in `templates/voice-SKILL.md` and `templates/notes.md`, and copy `references/unslop.md` alongside them:
 
@@ -97,11 +103,11 @@ If you can't write to `~/.claude/skills` (for example in claude.ai chat), build 
 
 If `<first-name>-voice` already exists, don't overwrite it. Keep every rule they wrote, show the changes you'd make, apply only what they approve, and save the old file as `SKILL.md.bak`.
 
-### 7. Test drive
+### 8. Test drive
 
-Ask for something real they need to send soon, or use the meeting-move topic. Draft it once per register and ask "Which one sounds least like you?" with the drafts as options plus "They all sound like me". Fix what they flag and add the lesson to `notes.md`.
+Ask for something real they need to send soon, or use the meeting-move topic. Draft it for each of their top-priority registers and ask "Which one sounds least like you?" with the drafts as options plus "They all sound like me". Fix what they flag and add the lesson to `notes.md`.
 
-### 8. Schedule the refresh
+### 9. Schedule the refresh
 
 Ask "Want me to keep checking what you send so this stays current?" with Every week (Recommended) / Every month / Only when I ask. If they pick a schedule and a scheduled-task tool exists, create a task:
 
