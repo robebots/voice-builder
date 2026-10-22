@@ -19,12 +19,12 @@ Name the skills you found so they know where this applies.
 
 ## Wispr Flow
 
-Wispr's Styles page (left sidebar → Styles) sets tone per app category: Personal Messages, Work Messages, Email, and Other. Map their registers to it and tell them what to pick:
+The voice skill does the real code-switching, per person and per situation. Wispr's Styles page (left sidebar → Styles) only sets one tone per app category: Personal Messages, Work Messages, Email, and Other. It can't tell their manager from their work bestie. So treat it as a rough export: pick the anchor they use most in each category, and say plainly that dictation won't switch the way drafts do.
 
 | Wispr category | Use their register | Note |
 |---|---|---|
-| Work Messages | Slack channels or DMs | Very Casual isn't offered here. Casual is closest for lowercase writers. |
-| Email | Their internal or client email | Formal, Casual, or Excited |
+| Work Messages | Their most common Slack anchor | Very Casual isn't offered here. Casual is closest for lowercase writers. |
+| Email | Their most common email anchor | Formal, Casual, or Excited |
 | Personal Messages | Work besties, if they DM friends from personal apps | Very Casual is available here |
 | Other | Their most common register | |
 
@@ -35,7 +35,7 @@ Styles only affect new dictations.
 For anything else the scan found (Willow, Superwhisper, Raycast AI, Superhuman, Grammarly, ChatGPT or Claude profile preferences), check whether the app has a custom instructions, style, or tone setting. If it does, give them a short paste-in block, under 500 characters, built from the profile and scrubbed like everything else:
 
 ```
-Write like me: <register in a few words>. <Length>. <Caps and punctuation>. <Two or three do's>. Never: <two or three don'ts>. No em dashes, no AI filler.
+Write like me: <core voice in one line>. Switch by who it's for: <close teammates: e.g. lowercase, short>; <leadership or clients: e.g. full sentences, greeting>; bad news gets <e.g. longer, no jokes>. Match the other person's tone a notch. Never: <two or three don'ts>. No em dashes, no AI filler.
 ```
 
 If an installer is sitting in Downloads but the app isn't installed, mention it once. Don't install anything.

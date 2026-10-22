@@ -1,6 +1,6 @@
 ---
 name: voice-builder
-description: Builds and maintains a personal writing-voice skill from the person's own Slack and Gmail history, plus meeting transcripts, Wispr Flow, and (opt-in) their prompts to coding agents for how they talk, skipping anything that looks AI-drafted. It scans their existing skills and writing apps and offers to hook the voice into them. It works out their role, the kinds of writing they do (including formal writing like PRs, proposals, or policies), and their registers (audience plus medium), then asks only the clarifying questions the data can't answer. It also sets how the agent itself talks to them. Works in Claude Code, Codex, Kimi Code, and other agents that read SKILL.md. Use when someone says "build my voice", "set up my voice skill", "learn how I write", "refresh my voice", or a scheduled voice refresh runs.
+description: Builds and maintains a personal writing-voice skill from the person's own Slack and Gmail history, plus meeting transcripts, Wispr Flow, and (opt-in) their prompts to coding agents for how they talk, skipping anything that looks AI-drafted. It scans their existing skills and writing apps and offers to hook the voice into them. It works out their role, the kinds of writing they do (including formal writing like PRs, proposals, or policies), and how they code-switch between people and situations (a constant core voice plus dials that move with context), then asks only the clarifying questions the data can't answer. It also sets how the agent itself talks to them. Works in Claude Code, Codex, Kimi Code, and other agents that read SKILL.md. Use when someone says "build my voice", "set up my voice skill", "learn how I write", "refresh my voice", or a scheduled voice refresh runs.
 ---
 
 # Voice builder
@@ -136,37 +136,42 @@ If more than a third of their written messages look AI-assisted, say so in the s
 
 **Formal writing.** Slack and email rarely show it, but it's most of what an agent will draft. From their role row, list the formal writing they probably do (PRs and RFCs for engineers, proposals for sales, policies for HR). Note any you actually saw.
 
-**Registers.** A register is an audience plus a medium, because people write differently in email and Slack even to the same person. Tag each message with both:
+**Context.** People code-switch. They write one way to a close teammate, another to an exec, and another when the news is bad. So tag every message with the context it was written in, not just where it went:
 
-- Medium: Slack or email
-- Audience: **Clients** (outside email domains, Slack Connect channels), **Leadership** (execs and their manager, going by Slack profile titles), **Internal** (team channels and other internal email), or **Work besties** (DMs and small group DMs with the handful of people they message most)
+- **Relationship:** closeness (how often they talk, DM or channel) × seniority (peer, their manager or leadership, someone they lead) × side (internal, or client, partner, or vendor) × newness (first exchange or ongoing). Use relationship categories, never names.
+- **Medium:** Slack DM, group DM, channel, email, or a document.
+- **Purpose and stakes:** quick ack, ask, update, decision, pushback or no, bad news, thanks or praise, apology, intro, or social chat.
+- **Audience size:** one person, a small group, or a big channel or all-company.
+- **The other side:** in replies, how the other person's last message read (length, caps, greeting), so you can see whether they mirror it.
 
-Each pair is a candidate register, like "Clients, email" or "Work besties, Slack". Keep a candidate that has at least 10 messages. Merge two that read the same, and split one that clearly holds two styles. Most people end up with four to six. Track what you weren't sure how to classify; those become questions.
+**Registers** are the contexts they write in most, like "work besties, Slack DM" or "clients, email". Each needs at least 10 messages. They're anchor points to adjust from, not presets to pick between. Track what you weren't sure how to classify; those become questions.
 
-### 5. Analyze each register
+### 5. Learn how they code-switch
 
-For each register, write down findings with rough counts, not impressions:
+Sort what you find into three layers.
 
-- Length: words per Slack message, paragraphs per email
-- Openers and sign-offs
-- Caps and punctuation: sentence case or lowercase, trailing periods, exclamation points, ellipses, em dashes
-- Emoji, and whether reactions replace replies
-- Directness: where the ask sits, how they say no, how they push back
-- Softeners: "just", "I think", "sorry", "no worries if not"
-- Recurring words and short phrases (these also feed the agent voice)
-- Structure: when they use bullets and when prose
-- Humor, slang, or profanity, only if it repeats
+**Core voice, which stays the same everywhere.** Word choice, how they get to the point, how they explain, how they push back, what they never say. Find what holds across every context. This is what makes a message sound like them whether it's lowercase in a DM or a careful client email.
 
-Also note when a writing type has its own shape across registers, like status updates always in bullets.
+**Dials, which move with context.** Measure where each register sits on each one, with rough counts:
 
-Give each register a preset name, borrowed from Wispr Flow:
+| Dial | One end | Other end | What to count |
+|---|---|---|---|
+| Formality | lowercase, fragments, no greeting | full sentences, greeting, sign-off | caps, trailing periods, greetings and sign-offs |
+| Length | one line | several paragraphs | words per message |
+| Warmth | facts only | personal, appreciative | thanks, check-ins, exclamation points |
+| Directness | asks around it | states it flat | where the ask sits, softeners ("just", "sorry", "no worries if not") |
+| Play | none | jokes, slang, emoji | laugh tags, slang, emoji, profanity (only if it repeats) |
+| Structure | loose prose | bullets and sections | lists, line breaks, headers |
 
-| Preset | What it looks like |
-|---|---|
-| Formal | Caps, full punctuation, greeting and sign-off |
-| Casual | Caps, lighter punctuation, usually no sign-off |
-| Very casual | Lowercase, minimal punctuation |
-| Excited | Casual with exclamation points and emoji |
+**Switching rules: what moves the dials.** Compare dial positions across contexts and write down what moves them, with counts. For example:
+
+- "Formality goes up with seniority: lowercase in 8 of 10 peer DMs, 2 of 10 messages to leadership."
+- "First messages to new people get a greeting and full sentences; later ones drop both."
+- "Bad news gets longer and more formal, and the joke disappears."
+- "Matches the other person: replies run about as long as the message they answer."
+- "Big channels get caps and structure; DMs don't."
+
+Keep only rules with a real pattern behind them, at least 5 examples and a clear gap. Also note when a writing type has its own shape everywhere, like status updates always in bullets. Note mirroring separately: whether, and how much, their replies move toward the other person's style.
 
 ### 6. Analyze how they talk
 
@@ -187,7 +192,9 @@ Before any question, show one short summary:
 
 - Which sources you used, and how many written messages you set aside as AI-assisted, with the signals that caught most of them
 - Their role, the writing types that make up most of their messages with rough shares, and the formal writing their role usually involves
-- Each register: preset, message count, three to five findings with counts, and one sample sentence in that style about a neutral topic like moving a meeting. Don't quote their real messages.
+- Their core voice in three or four lines
+- How they code-switch: the dials that move most, the three to five strongest switching rules with counts, and whether they mirror people
+- Each register as an anchor: where it sits on the dials, message count, and one sample sentence about a neutral topic like moving a meeting, so they can hear the switch side by side. Don't quote their real messages.
 - Habits worth a look, with counts: hedging, apologizing, long wind-ups before the ask, exclamation points, anything unslop would cut
 - If you had spoken sources: how they talk in three or four lines, and the biggest gaps between how they talk and how they write
 
@@ -204,10 +211,12 @@ If you set aside more than a third of their messages as AI-assisted, also ask: "
 
 Then ask them to point at one or two examples of the formal writing they picked: a link you can read (a PR, a Google Doc) or pasted text. Analyze those like a register: structure, length, how they open, what they always include. If they have none, start from the role defaults plus their most formal register, and say so. If their company has a template or skill for that document type, note it as the thing to follow.
 
-**Round 2: registers.**
+**Round 2: how they switch.**
 
 - Classification you weren't sure about: "Your DMs with three people read like client talk. Clients or teammates?"
-- Each register, biggest first: "Client emails: you're pretty formal, about 90 words, 'Hi <name>,' and 'Best,'. Keep that?" Options: Keep it (Recommended) / Loosen it up / Shorter and more direct / More polished, each with the sample sentence rewritten in that style as a preview.
+- The strongest switching rules, one question each: "With leadership you tighten up: caps and full sentences, where peers get lowercase. Keep that?" Options: Keep it (Recommended) / Switch less, sound the same everywhere / Switch more. Preview the same neutral sentence written to a peer and to an exec, so they see the switch.
+- Mirroring: "You tend to match the other person's length and tone. Should drafts do that too?" Options: Yes (Recommended) / A little / No, keep my own style.
+- Any anchor register they'd want to move: "Client emails run long, about 150 words. Want them shorter?" Only ask where a dial looks out of line with what they said they want.
 
 **Round 3: habits.**
 
@@ -232,7 +241,7 @@ Then add the Claude Code symlink if they use Claude Code. Older versions of this
 
 ### 10. Set the agent's own voice
 
-Fill in `templates/agent-voice.md` from what you found: their register with you (usually their work-besties or internal style, one notch more careful), their typical length, up to 10 of their recurring words, and their role. Talking to an agent is closer to conversation than to email. If they opted into agent prompts, base the block mostly on how they write to agents, since that's literally how they talk to you. Otherwise use their spoken sources, then their casual registers. Show the filled block and ask "Want me to talk to you like this too?" with Yes / Change something / No.
+Fill in `templates/agent-voice.md` from what you found: where they sit on the dials when talking to you (usually near their work-besties or internal style, one notch more careful), their typical length, up to 10 of their recurring words, and their role. Talking to an agent is closer to conversation than to email. If they opted into agent prompts, base the block mostly on how they write to agents, since that's literally how they talk to you. Otherwise use their spoken sources, then their casual registers. Show the filled block and ask "Want me to talk to you like this too?" with Yes / Change something / No.
 
 On yes, add the block to each always-on instruction file for agents they have. If the file already has a `voice-builder:agent-voice` block, replace that block only. Create the file if the agent's folder exists but the file doesn't. If a file is a symlink, is generated by a script, or says someone else owns it, don't edit it: show the block and say where it should go instead.
 
@@ -247,7 +256,7 @@ Use the scan from step 1 and `references/integrations.md`. Show what you found i
 
 Then ask in one call:
 
-- "Where should your voice show up?" (multiSelect) Only what applies, up to four. For example: Other drafting skills (one line in the agent-voice block, no edits to those skills) / Wispr Flow styles (you tell them what to pick per category) / A paste-in style for <app> / Merge my existing <name> skill. Their answer under Other covers anything the scan missed. Mention that web tools and phone apps don't show up.
+- "Where should your voice show up?" (multiSelect) Only what applies, up to four. For example: Other drafting skills (one line in the agent-voice block, no edits to those skills) / Closest Wispr Flow settings (a rough export, since Wispr can't switch per person) / A paste-in style for <app> / Merge my existing <name> skill. Their answer under Other covers anything the scan missed. Mention that web tools and phone apps don't show up.
 
 Then do what they picked:
 
@@ -256,7 +265,7 @@ Then do what they picked:
 
 ### 12. Test drive
 
-Ask for something real they need to send soon, or use the meeting-move topic. Draft it in their two biggest registers, plus one piece of formal writing they picked (or one meant to be said out loud, if they picked that), and ask "Which one sounds least like you?" with the drafts as options plus "They all sound like me". Fix what they flag and add the lesson to `notes.md`.
+Ask for something real they need to send soon, or use the meeting-move topic. Draft it for two different people they'd really send it to, such as a work bestie and their manager, so the switch shows. Add one piece of formal writing they picked (or one meant to be said out loud, if they picked that). Ask "Which one sounds least like you?" with the drafts as options plus "They all sound like me". Fix what they flag and add the lesson to `notes.md`.
 
 ### 13. Schedule the refresh
 
@@ -273,7 +282,7 @@ If nothing can run on a schedule, tell them to say "refresh my voice" once a mon
 1. Read `<first-name>-voice/SKILL.md` and `notes.md`. Find the last refresh date, and the sources, exclusions, and window they chose in setup. Use exactly those. Never add a source they didn't pick.
 2. Pull messages they sent since then, using the queries from setup step 2, capped at 100 Slack messages and 30 emails, plus any new meetings, Wispr dictations, and agent prompts from the sources they picked. Rerun `scripts/scan_setup.py` too, and mention any new voice or drafting skill or writing app once.
 3. Run the AI-assisted filter from setup step 3. Drafts made with their own voice skill are a special risk: they look like the profile, so learning from them only echoes it. If messages in a register match the profile unusually cleanly, and are tidier than their quick messages, treat them as likely drafted and don't promote anything from them. Edits they made to a draft before sending are the real signal, and the voice skill already records those as notes.
-4. Compare each register to the profile. Write one dated note per real difference, abstract only, for example "2026-11-02 Work besties, Slack: lowercase in 18 of 20 DMs, profile says Casual." Note a new register or writing type if one shows up with 10 or more messages, and any new recurring words.
+4. Compare each register to the profile. Write one dated note per real difference, abstract only, for example "2026-11-02 Work besties, Slack DM: lowercase in 18 of 20, profile says mostly caps" or "2026-11-02 Switching: leadership messages got shorter, 6 of 8." Check the switching rules too, not just the anchors. Note a new register, switching rule, or writing type if one shows up with 10 or more messages, and any new recurring words.
 5. Promote a pattern into `SKILL.md` once notes from two separate refreshes agree, or three notes of any kind do. Never change something the person chose in setup or wrote by hand; note the drift and ask them next time they use the skill. Record each change in the Changelog in `notes.md`.
 6. If the recurring words or their register with you changed, update the `voice-builder:agent-voice` blocks too, following the same ownership rule as setup step 10.
 7. Keep `notes.md` under 60 lines by folding promoted notes into their changelog line.
