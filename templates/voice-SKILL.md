@@ -41,6 +41,18 @@ Never invent facts, opinions, promises, or feelings. Keep {{First}}'s level of c
 
 If a draft's audience and medium have no section yet, use the closest one with the same medium, and say which one you used.
 
+## Formal writing
+
+{{First}} is a {{role}}. Formal writing uses normal caps, punctuation, and complete sentences. It keeps {{First}}'s word choice, directness, and warmth, and drops the Slack habits. Unslop applies in full here, with no "Keep anyway" exceptions except technical terms.
+
+### {{Document type, e.g. PR description}}
+- Structure: {{from their examples or the role default}}
+- Length: {{...}}
+- Always includes: {{...}}
+- Follow: {{team template, style guide, or skill, if any}}
+
+{{...one section per formal writing type they picked in setup}}
+
 ## Keep anyway
 
 These habits stay even though unslop would remove them: {{list, or "none"}}.
