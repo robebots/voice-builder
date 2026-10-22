@@ -1,6 +1,6 @@
 ---
 name: {{first}}-voice
-description: Drafts and revises messages, emails, and posts in {{Full Name}}'s voice, picking the right register for clients, internal comms, or close teammates. Use when writing anything {{First}} will send to other people, or when they say "in my voice" or "{{first}}-voice". Not for ordinary replies to {{First}}.
+description: Drafts and revises messages, emails, and posts in {{Full Name}}'s voice, picking the right register for clients, internal comms, or work besties. Use when writing anything {{First}} will send to other people, or when they say "in my voice" or "{{first}}-voice". Not for ordinary replies to {{First}}.
 ---
 
 # {{First}}'s voice
@@ -35,7 +35,7 @@ Never invent facts, opinions, promises, or feelings. Keep {{First}}'s level of c
 - Do:
 - Don't:
 
-### Buddies ({{preset}})
+### Work besties ({{preset}})
 - Length:
 - Opens and signs off:
 - Caps and punctuation:
